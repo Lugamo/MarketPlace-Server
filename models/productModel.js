@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
+require('dotenv').config({ path: 'variables.env'})
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/marketplace'
+const uri = process.env.DB_URL
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 // Check if connection was successful

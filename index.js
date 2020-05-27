@@ -9,11 +9,14 @@ const credentialController = require('./controller/credentialController')
 const userController = require('./controller/userController')
 
 const app = express();
-const port = process.env.PORT || 3001;
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+  limit: '50mb',
+  extended: true
+}));
 app.use(bodyParser.urlencoded({
   extended: true,
+  limit: '50mb'
 }));
 
 app.use(cors({
@@ -117,6 +120,9 @@ const removeFromShopcart = async (req, res) => {
 
 app.put('/user/shopcart/remove/:productId', credentialController.verifyCredentials, asyncHandler(removeFromShopcart))
 
-app.listen(port, () => {
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 3001
+
+app.listen(port, host, () => {
   console.log(`Started up at port ${port}`);
 });
