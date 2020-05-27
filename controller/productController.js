@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uuid = require('uuid/');
+const uuid = require('uuid');
 
 const Product = require('../models/productModel');
 const filter = require('../filter/productFilter')

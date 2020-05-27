@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const uuid = require('uuid/');
+const uuid = require('uuid');
 
 const keyword = require('../keyword/keyword');
 const filter = require('../filter/loginFilter')
