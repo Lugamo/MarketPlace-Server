@@ -14,7 +14,7 @@ const getProducts = async (req) => {
   const options = {
     select: '-_id -__v -description',
     page: (Number(req.query.page) || 1),
-    limit: 15,
+    limit: 5,
   };
 
   if (req.query) {
@@ -100,7 +100,7 @@ const addProduct = async (req) => {
     const newProduct = await product.save()
     response = {
       id: newProduct.id,
-      username: newProduct.name,
+      name: newProduct.name,
       price: newProduct.price
     }
   } catch (error) {
