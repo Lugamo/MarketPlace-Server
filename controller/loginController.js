@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const uuid = require('uuid');
+const uuid = require('uuid/v4');
 
 const keyword = require('../keyword/keyword');
 const filter = require('../filter/loginFilter')
@@ -17,7 +17,7 @@ const register = async (req) => {
     const user = new User({
       ...req.body,
       hash_password: bcrypt.hashSync(req.body.password, 10),
-      id: uuid.v4()
+      id: uuid()
     });
     const newUser = await user.save()
     response = {

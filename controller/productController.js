@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uuid = require('uuid');
+const uuid = require('uuid/v4');
 
 const Product = require('../models/productModel');
 const filter = require('../filter/productFilter')
@@ -95,7 +95,7 @@ const addProduct = async (req) => {
   try {
     const product = new Product({
       ...req.body,
-      id: uuid.v4()
+      id: uuid()
     });
     const newProduct = await product.save()
     response = {
