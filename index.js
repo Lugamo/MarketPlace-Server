@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://sleepy-borg-14aaba.netlify.app',
   credentials: true,
 }));
 
